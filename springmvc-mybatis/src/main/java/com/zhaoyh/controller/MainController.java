@@ -32,7 +32,7 @@ public class MainController extends BaseController {
         List<User> userList = userService.getUserByPhone("18811721028");
         System.out.println("......" + userList.size());
 
-        return innerCreateModelAndView(INDEX);
+        return innerCreateModelAndView(INDEX, "userList", userList);
     }
 
 

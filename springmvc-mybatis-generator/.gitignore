@@ -1,0 +1,6 @@
+.*
+!.gitignore
+*.class
+#package files
+target
+*.xml.bak

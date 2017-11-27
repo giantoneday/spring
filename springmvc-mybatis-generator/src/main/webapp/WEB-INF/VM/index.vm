@@ -1,0 +1,5 @@
+<h2>SSM Test $userList </h2>
+#foreach( $user in $userList)
+    <h1>$user.id</h1>
+    <h1>$user.name</h1>
+#end

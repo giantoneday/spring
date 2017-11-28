@@ -1,5 +1,8 @@
 package com.zhaoyh.service;
         import com.zhaoyh.model.User;
+        import com.zhaoyh.model.UserExample;
+        import com.zhaoyh.model.UserModel;
+        import com.zhaoyh.storage.UserMapper;
         import com.zhaoyh.storage.UserStorage;
         import org.springframework.beans.factory.annotation.Autowired;
         import org.springframework.stereotype.Service;
@@ -13,14 +16,16 @@ package com.zhaoyh.service;
 public class UserService implements IUserService {
 
     @Autowired
-    private UserStorage userStorage;
+    private UserMapper userMapper;
 
     public void addUser(User user) {
-        userStorage.addUser(user.getName(), user.getPhone());
+        userMapper.insert(user);
     }
 
     public List<User> getUserByPhone(String phone) {
-        return userStorage.queryUserByPhone(phone);
+        UserExample userExample = new UserExample();
+        userExample.createCriteria().andPhoneEqualTo(phone);
+        return userMapper.selectByExample(userExample);
     }
 
 }

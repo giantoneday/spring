@@ -1,4 +1,4 @@
-create table user
+create table userModel
 (
     id bigint auto_increment
         primary key,

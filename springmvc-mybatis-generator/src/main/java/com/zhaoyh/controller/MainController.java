@@ -26,7 +26,9 @@ public class MainController extends BaseController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView index(HttpServletRequest request, HttpServletResponse response) {
 
-        User user = new User("zhaoyh", "18811721028");
+        User user = new User();
+        user.setName("zhaoyh");
+        user.setPhone("18811721028");
         userService.addUser(user);
 
         List<User> userList = userService.getUserByPhone("18811721028");
